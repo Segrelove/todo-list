@@ -1,1 +1,13 @@
 $('#<%= @email.id %>').html("<%= j (render 'mail_show') %>").toggle();
+console.log("CA MARCHE");
+console.log("<%= @email.read %>");
+
+$("#<%= @email.id %>").bind("change", function() {
+  var bool = this.checked ? true : false;
+  var regex = /task_/;
+  $.ajax({
+    url: "/tasks/" + this.id.replace(regex, ""),
+    type: "PUT",
+    data: { status: bool }
+  });
+});

@@ -20,14 +20,14 @@ class EmailsController < ApplicationController
 
   def edit
     @email = Email.find(params[:id])
-
   end
 
   def update
     @email = Email.find(params[:id])
-    if @email.update(email_params)
-      flash[:success] = "Modifications enregistrées !"
-      redirect_to @email
+    if @email.update(read: true)
+      respond_to do |format|
+        format.js
+      end
     else
       flash[:danger] = "Erreur!"
       redirect_to @email
@@ -51,6 +51,6 @@ class EmailsController < ApplicationController
   private
 
   def email_params
-    params.require(:email).permit(:object, :body)
+    params.require(:email).permit(:object, :body, :read)
   end
 end
