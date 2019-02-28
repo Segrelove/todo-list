@@ -43,9 +43,13 @@ class EmailsController < ApplicationController
   end
 
   def destroy
-    Email.find(params[:id]).destroy
-    flash[:success] = "Email supprimé!"
-    redirect_to emails_path
+    @email=Email.find(params[:id])
+    respond_to do |format|
+      format.js
+      # flash[:success] = "Email supprimé!"
+      # redirect_to emails_path
+      # @email.destroy
+    end
   end
 
   private

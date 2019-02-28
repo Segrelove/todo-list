@@ -79,7 +79,7 @@
    </ul>
    <!-- END: Tabs -->
   <% @emails.each do |email| %>
-   <div class="list-group">
+   <div class="list-group <%= email.id %>">
 
     <li class="list-group-item d-flex justify-content-start">
 
@@ -101,12 +101,11 @@
 
     </li>
 
-    </li>
 
    </div>
-  <% end %>  
+  <% end %>
   </div>
-  
+
  </div>
  <!-- END: Second row -->
 </div>
