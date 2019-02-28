@@ -16,6 +16,8 @@ class EmailsController < ApplicationController
 
   def index
     @emails = Email.all
+    @read = @emails.where(read: true)
+    @unread = @emails.where(read: false)
   end
 
   def edit
