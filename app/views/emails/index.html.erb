@@ -89,9 +89,9 @@
      &nbsp;&nbsp;&nbsp;&nbsp;
      
       <span class="name fullname pt-2"> 
-      <%= link_to email.object, email_path(email), remote: true, class: "text-dark" %>
+      <%= link_to email.object, email_path(email), remote: true, class: "embolden" %>
       </span>
-      <span id="mail_container"></span>
+      <span id="<%= email.id %>"></span>
 
      <span class="ml-auto p-2">
 						<a href="<%= edit_email_path(email.id) %>"><i class="fa fa-paperclip"></i></a>
