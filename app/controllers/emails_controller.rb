@@ -36,8 +36,10 @@ class EmailsController < ApplicationController
 
   def show
     @email = Email.find(params[:id])
+    @index =params[:index]
 
     respond_to do |format|
+      @email.read = true
       format.js {render layout: false}
     end
   end

@@ -1,5 +1,8 @@
 $('#<%= @email.id %>').html("<%= j (render 'mail_show') %>").toggle();
+$('.<%= @email.id %>').removeClass('font-weight-bold').addClass('red');
 
+console.log($("<%= @email.id %>"))
+console.log($("<%= @email.object %>"))
 console.log("CA MARCHE");
 console.log("<%= @email.read %>");
 
